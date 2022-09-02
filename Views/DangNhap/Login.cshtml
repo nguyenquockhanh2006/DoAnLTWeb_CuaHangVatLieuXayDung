@@ -1,0 +1,66 @@
+﻿@model CuaHangVatLieuXayDung.Models.TAIKHOAN
+
+@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng nhập</title>
+    <link href="~/Content/StyleSheetDangNhap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/StyleSheetDangNhap.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript">
+        function getinfo() {
+            var tendangnhap = document.getElementById("TK").value;
+            var matkhau = document.getElementById("MK").value;
+            // kiem tra
+            if (tendangnhap == "") {
+                document.getElementById("errorTK").innerHTML = "Tên đăng nhập không được trống";
+                /*alert("Tài khoản không thể trống");*/
+            }
+            else {
+                document.getElementById("errorTK").innerHTML = "";
+            }
+
+            if (matkhau == "") {
+                document.getElementById("errorMK").innerHTML = "Mật khẩu không được trống";
+                /*alert("Mật khẩu không thể trống");*/
+            }
+            else {
+                document.getElementById("errorMK").innerHTML = "";
+            }
+            if (tendangnhap && matkhau) {
+                return ;
+            }
+        }
+    </script>
+
+</head>
+<body style="background-image: url('../../Content/Image/nen1.jpg'); background-repeat: no-repeat; background-size: 100% 100%; ">
+    <div id="wrapper">
+        @using (Html.BeginForm("Login", "DangNhap", FormMethod.Post, new { @id = "formDH" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+
+                @Html.TextBoxFor(m => m.ID, "", new { @class = "form-input1", @placeholder = "Tên đăng nhập", @id = "TK" })
+
+            </div>
+            <span class="error" id="errorTK"></span>
+            <div class="form-group">
+
+                @Html.PasswordFor(m => m.PASS, new { @class = "from-input2", @placeholder = "Mật khẩu", @id = "MK" })
+            </div>
+            <span style="color:white" class="error" id="errorMK"></span>
+            <span style="color:white">@ViewBag.error</span>
+            <div class="form-group">
+                <input type="submit" onclick="getinfo(); return true;" name="submit" class="form-submit" value="Đăng nhập" />
+            </div>
+            <div style="color:white"><span>Chưa có tài khoản ? </span><a style="color:white" href="~/DangNhap/Register">Đăng kí</a></div>
+        }
+    </div>
+</body>
+</html>

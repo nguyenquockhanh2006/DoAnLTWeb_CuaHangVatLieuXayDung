@@ -1,0 +1,118 @@
+﻿@model CuaHangVatLieuXayDung.Models.TAIKHOAN
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Đăng kí</title>
+    <link href="~/Content/StyleSheetDangKi.css" rel="stylesheet" />
+    <script type="text/javascript">
+        function getinfo() {
+            var tendangnhap = document.getElementById("TK").value;
+            var tennguoidung = document.getElementById("TND").value;
+            var matkhau = document.getElementById("MK").value;
+            var sodienthoai = document.getElementById("SDT").value;
+            var sodienthoai = document.getElementById("DC").value;
+            
+            // kiem tra
+            if (tendangnhap == "") {
+                document.getElementById("errorTK").innerHTML = "Địa chỉ không được trống";
+            }
+            if (tennguoidung == "") {
+                document.getElementById("errorTND").innerHTML = "Tên người dùng không được trống";
+            }
+            if (matkhau == "") {
+                document.getElementById("errorMK").innerHTML = "Mật khẩu không được trống";
+            }
+            if (diachi == "") {
+                document.getElementById("errorTK").innerHTML = "Tên đăng nhập không được trống";
+            }
+            if (sodienthoai == "") {
+                document.getElementById("errorSDT").innerHTML = "Số điện thoại không được trống";
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+    @using (Html.BeginForm("Register", "DangNhap", FormMethod.Post, new { id = "form-dangki" }))
+    {
+
+        @Html.AntiForgeryToken()
+        <div class="formdangnhap-dn">
+            <h4>ĐĂNG KÍ TÀI KHOẢN</h4>
+            <hr />
+            @ViewBag.Error
+            <div class="form-group flex-kiet">
+                <p>ID tài khoản: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" }, @id = "TK" })
+                    <span id="errorTK"></span>
+                </div>
+            </div>
+            <div class="form-group flex-kiet">
+                <p>Tên người dùng: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TEN, new { htmlAttributes = new { @class = "form-control" }, @id = "TND"  })
+                    <span id="errorTND"></span>
+                </div>
+            </div>
+            <div class="form-group flex-kiet">
+                <p>Mật khẩu: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PASS, new { htmlAttributes = new { @class = "form-control" }, @id = "MK" } )
+                    <span id="errorMK"></span>
+                </div>
+            </div>
+            <div class="form-group flex-kiet">
+                <p>Giới tính: </p>
+                @Html.RadioButtonFor(model => model.GIOITINH, "Nam", new { @id = "radNam", @checked = true })<p>Nam</p>
+                @Html.RadioButtonFor(model => model.GIOITINH, "Nữ", new { @id = "radNu"})<p>Nữ</p>
+            </div>
+            <div class="form-group flex-kiet">
+                <p>Địa chỉ: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DIACHI, new { htmlAttributes = new { @class = "form-control" }, @id = "DC" })
+                    <span id="errorDC"></span>
+                </div>
+            </div>
+
+            <div class="form-group flex-kiet">
+                <p>Số điện thoại: </p>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SDT, new { htmlAttributes = new { @class = "form-control" }, @id = "SDT" })
+                    <span id="errorSDT"></span>
+                </div>
+            </div>
+
+            <div class="form-group flex-kiet">
+                <p>Phân quyền: </p>
+                <div class="col-md-10">
+                    @{
+                        @Html.RadioButtonFor(model => model.PQ, "KHACH", new { @id = "radKhach", @checked = true })<p>Khách</p>
+                    }
+                </div>
+            </div>
+            
+            <div class="form-group flex-kiet">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" @*onclick="getinfo(); return false;"*@ name ="submit" value="Đăng kí" class="form-submit" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Quay lại đăng nhập", "Index")
+    </div>
+</body>
+</html>
+
+
+
+
+

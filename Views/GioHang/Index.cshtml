@@ -1,0 +1,23 @@
+﻿@model IEnumerable<CuaHangVatLieuXayDung.Models.GIOHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giỏ hàng</h2>
+<link href="~/Content/giohangcss.css" rel="stylesheet" type="text/css"/>
+<div style="display: flex; justify-content: center; justify-items: center;border:2px solid #7e7676"></div>
+@foreach (var item in Model)
+{
+    string a = "\"" + @Html.DisplayFor(modelItem => item.ANH) + "\"";
+    string b = "" + @Html.DisplayFor(modelItem => item.MASP);
+<div id="khungchua">
+    <div id="Khunganh" style="background-image:url(@a)"></div>
+    <div id="Khungten"><span id="Ten">@Html.DisplayFor(modelItem => item.TENSP)</span></div>
+    <div id="Khungdvt">@Html.DisplayFor(modelItem => item.DONVITINH) </div>
+    <div id="Khungdongia">@Html.DisplayFor(modelItem => item.DONGIA)</div>
+    <div id="Khungsl">@Html.DisplayFor(modelItem => item.SOLUONG)</div>
+    <div id="Khungtt">@Html.DisplayFor(modelItem => item.THANHTIEN)</div>
+</div>
+}

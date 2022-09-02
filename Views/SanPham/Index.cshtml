@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CuaHangVatLieuXayDung.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}   
+
+<h2>Index</h2>
+
+<div style="display: flex; justify-content: center; justify-items: center;border:2px solid #7e7676"></div>
+@foreach (var item in Model)
+{
+    string a = "\"" + @Html.DisplayFor(modelItem => item.ANHMOTA) + "\"";
+    string b = ""+@Html.DisplayFor(modelItem => item.MASP);
+    <div style=" width : 30%; height: 250px; padding: 15px 10px; float: left; font-size: 18px; font-family: Arial; justify-content: center; justify-items: center">
+        <div style="display: flex; justify-content: center; justify-items: center; width: 100%; float: left; background-color: #bdb8b8; height: auto; padding: 5px 0px; border-radius: 10px 10px 0px 0px">@Html.DisplayFor(modelItem => item.TENSP)</div>
+        <div onclick="ChiTietSP(@b)" style="width:100%; height:70%; float:left; background-image: url(@a); background-size:cover"></div>
+        <div style="display: flex; justify-content: center; justify-items: center; width: 100%; float: left; background-color: #bdb8b8; height: auto; padding: 5px 0px ">Giá: @Html.DisplayFor(modelItem => item.GIA)</div>
+        <div style="display: flex; justify-content: center; justify-items: center; width: 100%; float: left; background-color: #bdb8b8; height: auto; padding: 5px 0px; border-radius: 0px 0px 10px 10px ">
+            <a>Mua ngay</a>
+            <a>Thêm vào giỏ</a></div>
+    </div>
+}
+

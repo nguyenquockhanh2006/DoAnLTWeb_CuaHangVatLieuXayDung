@@ -1,0 +1,24 @@
+﻿@model IEnumerable<CuaHangVatLieuXayDung.Models.SANPHAM>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/StyleSheetSlideTrangChu.css" rel="stylesheet"  type="text/css"/>
+<link href="~/Content/StyleSheetSanPham.css" rel="stylesheet" type="text/css"/>
+<h2 style="float:left">Danh sách sản phẩm bán chạy</h2>
+
+<div class="slider">
+     @foreach (var item in Model)
+     {
+         string a = "\"" + @Html.DisplayFor(modelItem => item.ANHMOTA) + "\"";
+         string b = "" + @Html.DisplayFor(modelItem => item.MASP);
+      <div class="slide">
+           <div id="tensp">@Html.DisplayFor(modelItem => item.TENSP)</div>
+           <div id="anhminhhoa" , style="background-image: url(@a);"></div>
+           <div id="gia">Giá: @Html.DisplayFor(modelItem => item.GIA)</div>
+           <div id="tuongtac"><a href="~/GioHang/ThemGioHang/@b">Thêm vào giỏ hàng</a><a>Xem Chi Tiết</a></div>
+       </div>
+      }
+</div>
+

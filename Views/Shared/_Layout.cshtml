@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/StyleSheetMenu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div id="thongtinlienhe" style="width: 100%; height: 430px;float:left ; background-image: url('../../Content/Image/Title.jpg');background-size:1360px;background-repeat:no-repeat">
+    </div>
+
+    <div id="wrapper" style="width:100% ; float:left">
+        <div id="header">
+            <nav class="container">
+                <ul id="Main-Menu">
+                    <li><a href="~/TrangChu/Index">Trang Chủ</a></li>
+                    <li>
+                        <a href="#####">Sản phẩm</a>
+                        <ul class="sub-menu">
+                            <li>@Html.ActionLink("Xi măng", "LoadSanPham", "SanPham", new { Loai = "XMANG" }, null)</li>
+                            <li>@Html.ActionLink("Cát xây dựng", "LoadSanPham", "SanPham", new { Loai = "CATXD" }, null)</li>
+                            <li>@Html.ActionLink("Đá xây dựng", "LoadSanPham", "SanPham", new { Loai = "DAXD" }, null)</li>
+                            <li>@Html.ActionLink("Tôn", "LoadSanPham", "SanPham", new { Loai = "TON" }, null)</li>
+                            <li>@Html.ActionLink("Thép", "LoadSanPham", "SanPham", new { Loai = "THEP" }, null)</li>
+                            <li>@Html.ActionLink("Sơn xây dựng", "LoadSanPham", "SanPham", new { Loai = "SONXD" }, null)</li>
+                            <li>@Html.ActionLink("Gạch xây dựng", "LoadSanPham", "SanPham", new { Loai = "XMANG" }, null)</li>
+                        </ul>
+                    </li>
+                    @{
+                        if (Session["ID"] == null)
+                        {
+                            <li><a href="~/DangNhap/Login">Đăng nhập</a></li>
+                            <li><a href="~/DangNhap/Register">Đăng kí</a></li>
+                        }
+                        else
+                        {
+                            string s = Session["FullName"].ToString();
+                            if (Session["PHANQUYEN"].ToString() == "KHACH")
+                            {
+                                <li><a href="~/GioHang/Index">Giỏ hàng</a></li>
+                                <li><a href="#####">Đơn hàng</a></li>
+                                <li><a href="#####">Tư vấn</a></li>
+                                
+                                <li>
+                                    <a href="######">Xin chào  @s</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="######">Xem thông tin</a></li>
+                                        <li><a href="######">Đổi mật khẩu</a></li>
+                                        <li><a href="~/DangNhap/Logout">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            if (Session["PHANQUYEN"].ToString() == "AD")
+                            {
+                                <li><a href="#####">Đăng bài</a></li>
+                                <li><a href="#####">Đơn chờ duyệt</a></li>
+                                <li>
+                                    <a href="######">Xin chào  @s</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="######">Xem thông tin</a></li>
+                                        <li><a href="######">Đổi mật khẩu</a></li>
+                                        <li><a href="~/DangNhap/Logout">Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            }
+
+                        }
+                    }
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    @*<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.sub-menu').parent('li').addClass('has-child');
+            });
+        </script>*@
+
+    <div style="width:30%; float:left">
+        <div>
+            <video autoplay loop muted playsinline style="width:90%">
+                <source src="~/Content/Image/hkt%20(1).mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div id="slideshow">
+            <div class="slide-wrapper">
+                <div class="slide" id="slide-1"><img src="~/Content/Image/sale.png" style="width: 100%;height:700px" /></div>
+                <div class="slide" id="slide-2"><img src="~/Content/Image/sale1.jpg" style="width: 100%;height:700px" /></div>
+                <div class="slide" id="slide-3"><img src="~/Content/Image/sale5.png" style="width: 100%;height:700px" /></div>
+            </div>
+                <a href="#slide-1">1</a>
+                <a href="#slide-2">2</a>
+                <a href="#slide-3">3</a>
+        </div>
+    </div>
+
+
+    <div style="width:70%; float:left">
+        @RenderBody()
+    </div>
+
+
+
+    <hr style="float:left" />
+    <div style="background-color:black;float:left;width:100%">
+        <footer style="color:antiquewhite">
+            <p><strong>&emsp; Thông tin thành viên:</strong></p>
+            <p>&emsp; Nguyễn Quốc Khánh   - 1911061792</p>
+            <p>&emsp; Hoàng Thị Yến Trinh - 1911066422</p>
+            <p>&emsp; Lưu Văn Hòa         - 1911065218</p>
+            <p>&emsp; Lê Trọng Nhân       - 1911064922</p>
+            <p>&emsp;&copy; @DateTime.Now.DayOfWeek - @DateTime.Now.Day - @DateTime.Now.Month - @DateTime.Now.Year --- </p>
+        </footer>
+    </div>
+</body>
+</html>

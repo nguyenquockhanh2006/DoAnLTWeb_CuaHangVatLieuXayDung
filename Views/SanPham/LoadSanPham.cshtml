@@ -1,0 +1,20 @@
+﻿@model IEnumerable<CuaHangVatLieuXayDung.Models.SANPHAM>
+
+@{
+    ViewBag.Title = "LoadSanPham";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/KhungSanPham.css" rel="stylesheet" type="text/css"/>
+<h2>Danh sach sp</h2>
+
+<div style="display: flex; justify-content: center; justify-items: center;border:2px solid #7e7676"></div>
+@foreach (var item in Model)
+{
+    string a = "\"" + @Html.DisplayFor(modelItem => item.ANHMOTA) + "\"";
+    <div id="Khung">
+        <div id="TieuDe">@Html.DisplayFor(modelItem => item.TENSP)</div>
+        <div id="Anh" style="background-image: url(@a)"></div>
+        <div id="ChucNang">Giá: @Html.DisplayFor(modelItem => item.GIA)</div>
+        <div id="tuongtac"><a>Mua ngay</a><a>Thêm vào giỏ</a></div>
+    </div>
+}

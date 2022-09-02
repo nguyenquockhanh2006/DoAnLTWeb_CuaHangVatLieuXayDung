@@ -1,0 +1,30 @@
+﻿@model CuaHangVatLieuXayDung.Models.GIOHANG
+
+@{
+    ViewBag.Title = "ThemGioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ThemGioHang</h2>
+
+@using (Html.BeginForm("ThemGioHang", "GioHang", FormMethod.Post, new { @id = "formDH" }))
+{
+    string a = "\"" + @Html.DisplayFor(model => Model.ANH) + "\"";
+    <div style="display:none">
+        <span>Ảnh minh họa: </span> @Html.EditorFor(model => model.ANH, new { htmlAttributes = new { @class = "form-control" }, @id = "ANH" })
+    </div>
+    <div style="display:none">
+        <span>Mã sản phẩm: </span> @Html.EditorFor(model => model.MASP, new { htmlAttributes = new { @class = "form-control" }, @id = "TEN" })
+    </div>
+    <div>
+        <span>Tên sản phẩm: </span> @Html.EditorFor(model => model.TENSP, new { htmlAttributes = new { @class = "form-control" }, @id = "TEN" })
+    </div>
+    <div>
+        <span>Đơn vị tính: </span> @Html.EditorFor(model => model.DONVITINH, new { htmlAttributes = new { @class = "form-control" }, @id = "DVT" })
+    </div>
+    <div>
+        <span>Đơn Giá: </span> @Html.EditorFor(model => model.DONGIA, new { htmlAttributes = new { @class = "form-control" }, @id = "DONGIA" })
+    </div>
+    <div>Số lượng: @Html.TextBoxFor(m => m.SOLUONG)</div>
+    <input type="submit" name="submit" class="form-submit" value="Thêm vào giỏ hàng" />
+}

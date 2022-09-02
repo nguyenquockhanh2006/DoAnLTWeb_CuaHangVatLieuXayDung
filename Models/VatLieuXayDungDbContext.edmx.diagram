@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7fbad6f43432475e9ebf1241e309829a" Name="Diagram1">
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.CHITIETHOADON" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.HOADON" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.SANPHAM" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.GIOHANG" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_CHITIETHOADON_HOADON" ManuallyRouted="false" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_CHITIETHOADON_SANPHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_SANPHAM_LOAISANPHAM" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.TAIKHOAN" Width="1.5" PointX="0.75" PointY="8.75" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_GIOHANG_SANPHAM" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_GIOHANG_TAIKHOAN" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_HOADON_TAIKHOAN" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.BAIVIET" Width="1.5" PointX="3" PointY="9.125" />
+        <EntityTypeShape EntityType="CSDL_CHVLXDModel.DANHGIA" Width="1.5" PointX="5.25" PointY="4.625" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_BAIVIET_TAIKHOAN" />
+        <AssociationConnector Association="CSDL_CHVLXDModel.FK_DANHGIA_SANPHAM" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

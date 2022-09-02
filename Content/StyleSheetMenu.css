@@ -1,0 +1,155 @@
+﻿body {
+
+}
+.container{
+    max-width:960px;
+    margin: 0px auto;
+}
+#header{
+    background-color: black;
+
+}
+nav{
+    display: flex;
+    justify-content: center;
+    justify-items:center;
+}
+#logo{
+    padding: 5px 0px;
+}
+#logo img{
+    max-width:70px;
+    height:auto;
+    float:left;
+}
+#Main-Menu{
+    display:flex;
+    list-style:none;
+    margin:0;
+    padding:0;
+
+}
+#Main-Menu li{
+    position:relative;
+}
+#Main-Menu li a{
+    color: #ffffff;
+    display:block;
+    padding: 18px 20px;
+    text-decoration:none;
+}
+
+#Main-Menu ul.sub-menu{
+    
+    position:absolute;
+    background-color:#131921;
+    padding: 15px 0px;
+    list-style:none;
+    width:200px;
+    border:1px solid #a19a9a;
+    display:none;
+}
+#Main-Menu li:hover>ul.sub-menu{
+    display:block;
+}
+#Main-Menu ul.sub-menu a{
+    padding:8px 15px;
+    border-bottom:1px solid #ff0000;
+}
+#Main-Menu li:hover>a {
+    border-bottom: 1px solid #ffffff;
+}
+#Main-Menu ul.sub-menu li:last-child a{
+    border:none;
+}
+
+#Main-Menu>li>a{
+    position:relative;
+}
+
+#Main-Menu>li>a::before{
+    content:"";
+    height:4px;
+    width:0%;
+    background:#ff0000;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    transition: 0.25s cubic-bezier(0.075,0.82,0.165,1);
+}
+#Main-Menu > li:hover > a::before{
+    width:100%;
+}
+
+.NhapXuat {
+    float:right;
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: 0px 20px;
+}
+
+.menu {
+   
+    z-index: 900;
+    width: 100%;
+    bottom: 0;
+}
+
+    .menu label {
+        cursor: pointer;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: #fff;
+        border-radius: 50px;
+        margin: 0 .2em 1em;
+        transition: all .3s ease;
+    }
+
+        .menu label:hover {
+            background: red;
+        }
+#slideshow {
+    overflow: auto;
+    height: 700px;
+    width: 100%;
+}
+
+.slide-wrapper {
+    width: 100%;
+    -webkit-animation: slide 14s ease infinite;
+}
+
+.slide {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+
+
+
+@-webkit-keyframes slide {
+    20% {
+        margin-left: 0px;
+    }
+
+    30% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -100%;
+    }
+
+    60% {
+        margin-left: -200%;
+    }
+
+    80% {
+        margin-left: -200%;
+    }
+}
+.slides > div:target {
+    transform: scale(0.8);
+}
